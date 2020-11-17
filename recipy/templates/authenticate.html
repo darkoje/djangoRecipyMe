@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}{{title}}{% endblock title %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-body-wrapper">
+
+            <form method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form|crispy}}
+                <p class="text-center py-2">
+
+                    <input class="btn btn-primary" type="submit" value={{title}} />
+
+                    <!--<input class="btn btn-primary" type="submit" value="Login" />-->
+
+        		</p>
+        		<p class="text-center">or connect with</p>
+        		<p class="text-center">
+
+        			<!--<a href="#" class="social-login-icon icon-facebook"></a>-->
+        			<!--<a href="#" class="social-login-icon icon-google"></a>-->
+        			<!--<a href="#" class="social-login-icon icon-twitter"></a>-->
+        			<!--<a href="#" class="social-login-icon icon-apple"></a>-->
+
+        			<span class="social-login-icon icon-facebook"></span>
+        			<span class="social-login-icon icon-google"></span>
+        			<span class="social-login-icon icon-twitter"></span>
+        			<span class="social-login-icon icon-apple"></span>
+
+        		</p>
+            </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

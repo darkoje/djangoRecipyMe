@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>
+	{% block title %}Recipy.me{% endblock %}
+	</title>
+    {% include "head.html" %}
+</head>
+
+<body>
+
+	<div class="site" id="page">
+
+	    {% include "header.html" %}
+
+		<div id="page-content-wrapper">
+
+
+		    {% block content %}
+            {% endblock %}
+
+            {% include "footer.html" %}
+
+			<a href="#page" class="cd-top"></a>
+		</div>
+    </div>
+
+    {% include "modal-login.html" %}
+
+	{% include "modal-signup.html" %}
+
+
+</body>
+
+</html>

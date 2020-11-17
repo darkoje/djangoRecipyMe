@@ -1,0 +1,325 @@
+// Use this file to overwrite the basic Bootstrap variables and add your own variables
+// To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder.
+// Just copy a variable from src/sass/bootstrap4/_variables.scss, paste it here and edit the value.
+
+/* ------------------ Color Variables (Name that Color) ------------------ */
+
+// Color Palete Original
+$mineShaft:                #333333; //dark gray
+$pomegranate:              #ed2a25; //red
+$silver:                   #cccccc;
+$wildSand:                 #f7f6f6;
+
+// General Colors
+$blackColor:               #000000;
+$darkGray:                 $mineShaft;
+$Gray:                     lighten($darkGray, 10%);
+$lightGray:                lighten($darkGray, 20%);
+$lighterGray:              $silver;
+$verylightGray:            $wildSand;
+$whiteColor:               #ffffff;
+
+/* ------------------ Color Configs ------------------ */
+
+$bodyColor:                $whiteColor;
+$fontColor:                $blackColor;
+$primaryColor:             $pomegranate;
+$altColor:                 $mineShaft;
+$secondaryColor:           $mineShaft;
+$featColor:                $primaryColor;
+$darkColor:                $darkGray;
+$lightColor:               $lighterGray;
+$dangerColor:              red;
+$successColor:             #04b304;
+$warningColor:             orange;
+$borderColor:              $lightColor;
+$swiperBtnColor:           transparent;
+$swiperBtnColorHover:      transparent;
+$linkColor:                $featColor;
+$linkColorHover:           darken($featColor,10%);
+$lineColor:                $borderColor;
+
+/* ------------------ Button Variables ------------------ */
+
+$primaryBtnColorStart:     $featColor;
+$primaryBtnColorFinish:    $featColor;
+$btnHeight:                50px;
+$btnCtaHeight:             70px;
+$btnPadding:               25px;
+$btnSmHeight:              50px;
+$btnSmPadding:             20px;
+$btnXsHeight:              38px;
+$btnXsPadding:             20px;
+$btnLgHeight:              70px;
+$btnLgPadding:             60px;
+$swipperBtnHeight:         70px;
+$btnSmCtaHeight:           50px;
+$btnFontSize:              18px;
+$btnFontWeight:            400;
+
+// Border Radius
+$borderRadius:             0;
+$btnBorderRadius:          0;
+$btnSmBorderRadius:        0;
+$btnXsBorderRadius:        0;
+
+/* ------------------ Fonts (Sizes, Family) ------------------ */
+
+$fontFamily:               'Jost', sans-serif;
+$fontSize:                 18px;
+$fontSizeSm:               14px;
+$lineHeight:               1.55;
+
+$fontSizeH1:               40px;
+$fontSizeH2:               32px;
+$fontSizeH3:               24px;
+$fontSizeH4:               21px;
+$fontSizeH5:               18px;
+$fontSizeLgH1:             41px;
+$fontSizeLgH2:             31px;
+$fontSizeSmH1:             29px;
+$fontSizeSmH2:             25px;
+$fontSizeSmH3:             19px;
+$fontSizeSmH4:             17px;
+
+// Placeholder
+$input-color-placeholder:  $Gray;
+
+/* ------------------ Header Variables ------------------ */
+
+$headerColor:              $whiteColor;
+$hpHeaderColor:            $whiteColor;
+$headerMobileColor:        $whiteColor;
+$headerDownColor:          $whiteColor;
+$headerHeight:             86px;
+$headerHpHeight:           86px;
+$headerDownHeight:         86px;
+$headerMobileHeight:       60px;
+$headerMobileTopPadding:   5px;
+$headerTopPadding:         10px;
+$hpHeaderTopPadding:       10px;
+
+/* ------------------ Navbar Variables ------------------ */
+
+$navbarBgColor:            $whiteColor;
+$navbarTxtColor:           $blackColor;
+$navbarTxtColorHover:      $featColor;
+$navbarFontSize:           22px;
+$navbarLinkPadding:        0;
+$dropdownBgColor:          lighten($darkColor,10%);
+$dropdownFontSize:         14px;
+
+$menuOverlayColor:         $whiteColor;;
+$menuMobileColor:          $whiteColor;
+$menuMobileWidth:          100%;
+$menuMobileFontSize:       17px;
+$menuMobileTxtColor:       $navbarTxtColor;
+$menuMobileTxtColorHover:  $navbarTxtColorHover;
+$menuMobileBgColorHover:   $whiteColor;
+$menuMobileLinkPadding:    0;
+
+/* ------------------ Logo Variables ------------------ */
+
+$logoWidth:                210px;
+$logoMobileWidth:          150px;
+
+/* ------------------ Hero Variables ------------------ */
+
+$heroBgColor:              $whiteColor;
+$heroOverlayColor:         transparent;
+$heroHeight:               auto;
+$heroMinHeight:            400px;
+$heroMobileMinHeight:      220px;
+$hpHeroMinHeight:          400px;
+$hpHeroHeight:             auto;
+$hpHeroMobileMinHeight:    340px;
+$hpHeroMobileHeight:       auto;
+$heroPadding:              80px;
+$hpHeroPadding:            100px;
+
+/* ------------------ Sidebar Variables ------------------ */
+
+$sidebarBgColor:           $whiteColor;
+$sidebarTxtColor:          $fontColor;
+
+/* ------------------ Footer Variables ------------------ */
+
+$footerBgColor:              $darkGray;
+$footerTxtColor:             $whiteColor;
+
+/* ------------------ Width/Height/Margin/Padding ------------------ */
+
+$margin:                   20px;
+$lineWidth:                 1px;
+$borderWidth:               1px;
+$sectionPadding:           85px;
+$sectionMdPadding:         60px;
+$sectionSmPadding:         20px;
+
+/* ------------------ Icomoon Icons ------------------ */
+
+@font-face {
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon.woff?129qvo') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$fonti: "icomoon";
+
+.icon-rating {
+  content: "\e920";
+}
+.icon-alert {
+  content: "\e91e";
+}
+.icon-healthmeter {
+  content: "\e91f";
+}
+.icon-apple {
+  content: "\e900";
+}
+.icon-arrow_2_down {
+  content: "\e901";
+}
+.icon-arrow_2_left {
+  content: "\e902";
+}
+.icon-arrow_2_right {
+  content: "\e903";
+}
+.icon-arrow_2_up {
+  content: "\e904";
+}
+.icon-arrow_down {
+  content: "\e905";
+}
+.icon-arrow_left {
+  content: "\e906";
+}
+.icon-arrow_right {
+  content: "\e907";
+}
+.icon-arrow_up {
+  content: "\e908";
+}
+.icon-calendar {
+  content: "\e909";
+}
+.icon-check {
+  content: "\e90a";
+}
+.icon-clock {
+  content: "\e90b";
+}
+.icon-edit {
+  content: "\e90c";
+}
+.icon-exclude {
+  content: "\e90d";
+}
+.icon-exit_icon {
+  content: "\e90e";
+}
+.icon-facebook {
+  content: "\e90f";
+}
+.icon-facebook_circle {
+  content: "\e910";
+}
+.icon-hamburger {
+  content: "\e911";
+}
+.icon-instagram {
+  content: "\e912";
+}
+.icon-link {
+  content: "\e913";
+}
+.icon-linkedin {
+  content: "\e914";
+}
+.icon-photo {
+  content: "\e915";
+}
+.icon-photo_outline {
+  content: "\e916";
+}
+.icon-print {
+  content: "\e917";
+}
+.icon-profile {
+  content: "\e918";
+}
+.icon-reload {
+  content: "\e919";
+}
+.icon-switch {
+  content: "\e91a";
+}
+.icon-twitter {
+  content: "\e91b";
+}
+.icon-twitter_circle {
+  content: "\e91c";
+}
+.icon-youtube {
+  content: "\e91d";
+}
+
+/* ------------------ Bootstrap Variables ------------------ */
+
+$primary:                     $primaryColor;
+$secondary:                   $secondaryColor;
+$danger:                      $dangerColor;
+$success:                     $successColor;
+$warning:                     $warningColor;
+$dark:                        $darkColor;
+$light:                       $lightColor;
+$custom-control-indicator-bg: rgba(0,0,0,.2);
+$headings-font-weight:        700;
+$border-radius:               $borderRadius;
+$border-width:                $borderWidth;
+$table-border-color:          $borderColor;
+$hr-border-color:             $borderColor;
+
+$modal-content-border-color:  $whiteColor;
+$modal-backdrop-bg:           $blackColor;
+$modal-backdrop-opacity:      .8;
+$modal-content-border-radius: 0;
+$modal-md:                    600px;
+
+$container-max-widths: (
+  sm: 100%,
+  md: 100%,
+  lg: 100%,
+  xl: 1430px
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1100px,
+  xl: 1460px
+);
+
+$container-breakpoint:      map-get($container-max-widths, "xl");
+$nav-breakpoint:            map-get($grid-breakpoints, "xl");
+$spacer:                    30px;
+$form-grid-gutter-width:    20px;
+
+$grid-breakpoints-xl:       map-get($grid-breakpoints, "xl");
+$grid-breakpoints-lg:       map-get($grid-breakpoints, "lg");
+$grid-breakpoints-md:       map-get($grid-breakpoints, "md");
+$grid-breakpoints-sm:       map-get($grid-breakpoints, "sm");
+
+$grid-breakpoints-mobile:   $grid-breakpoints-md;
+
+$cards-per-line: (
+  xs: 1,
+  sm: 1,
+  md: 2,
+  lg: 3,
+  xl: 3
+);

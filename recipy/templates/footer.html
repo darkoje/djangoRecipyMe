@@ -1,0 +1,107 @@
+<footer class="footer">
+				<div class="footer-inner">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-3">
+								<div class="footer-col">
+									<h2>About</h2>
+									<a class="footer-logo" href="#">
+							  		<img src="/static/img/logo_white.svg" alt="Logo">
+							  	</a>
+							  	<p>
+							  		Recipy.me is an online recipes database containing specific ingredients, quntities and restrictions according to specific medical conditions.
+							  	</p>
+
+							  	<p>
+							  	    {% if user.is_superuser %}
+							  	    Hello <span class="feat strong">{{user.username}}</span>, <span><a href="/admin">staff area</a></span>, <span>profile</span> or <span><a href="/logout">logout</a></span>.
+                                    {% elif user.is_authenticated %}
+                                    Hello <span class="feat strong">{{user.username}}</span>, <span>profile</span> or <span><a href="/logout">logout</a></span>.
+                                    {% else %}
+    						  	    Hello. <a href="#" data-toggle="modal" data-target="#modalLogin">Login</a> or <a href="#" data-toggle="modal" data-target="#modalSignup">Sign up</a>.
+                                    {% endif %}
+
+							  	</p>
+
+								</div>
+							</div>
+							<div class="col-lg-2 offset-lg-1">
+								<div class="footer-col">
+									<h2>Site Index</h2>
+									<ul class="footer-menu">
+										<li><a href="/">Homepage</a></li>
+										<li><a href="#">About</a></li>
+										<li><a href="/recipes">Recipes</a></li>
+										<li><a href="#">Meal Planner</a></li>
+										<li><a href="/blog">News and Advices</a></li>
+										<li><a href="/pro">Recipy PRO</a></li>
+										<li><a href="/pro#prices">Pricing</a></li>
+										<li><a href="#">Contact</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-2">
+								<div class="footer-col">
+									<h2>Quick Links</h2>
+									<ul class="footer-menu">
+										<li><a href="#">AIDS</a></li>
+										<li><a href="#">Hearth Health</a></li>
+										<li><a href="#">Kidney Disease</a></li>
+										<li><a href="#">Diabetes</a></li>
+										<li><a href="#">Cancer</a></li>
+										<li><a href="#">Eating Disorders</a></li>
+										<li><a href="#">Digestive Disorders</a></li>
+										<li><a href="/recipes" class="feat strong">Show All</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="footer-col last">
+									<h2>Subscribe</h2>
+									<p>
+										<strong>Never miss a recipe!</strong> <br>
+										Subscribe to get new recipes via email
+									</p>
+									<form class="form mb-0">
+									  <div class="input-group mb-2">
+										  <input type="email" class="form-control">
+										  <div class="input-group-append">
+										    <button class="btn btn-primary" type="button">Subscribe</button>
+										  </div>
+										</div>
+									  <div class="custom-control my-1">
+									    <input type="checkbox" class="custom-control-input" id="customControlInline">
+									    <label class="custom-control-label" for="customControlInline">I agree with the &nbsp;<a class="strong" href="#">terms of service!</a></label>
+									  </div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- /.footer-inner -->
+				<div class="footer-bottom">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-md-9">
+								<ul class="footer-bottom-menu">
+									<li>&copy;{% now "Y" %} Recipy.me</li>
+									<li><a href="#">Privacy Policy</a></li>
+									<li><a href="#">Terms of Service</a></li>
+									<li><a href="#">Cookie Policy</a></li>
+								</ul>
+							</div>
+							<!--<div class="col-md-3">-->
+							<div class="footer-social-icons">
+								<ul class="social-menu">
+									<li><a class="social-icon fb-icon" href="#"></a></li>
+									<li><a class="social-icon ln-icon" href="#"></a></li>
+									<li><a class="social-icon inst-icon" href="https://www.instagram.com/recipy.me/"></a></li>
+									<li><a class="social-icon tw-icon" href="#/"></a></li>
+									<li><a class="social-icon yt-icon" href="#"></a></li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div><!-- /.footer-bottom -->
+			</footer>

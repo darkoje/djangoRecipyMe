@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Articles{% endblock %}
+
+
+{% block content %}
+
+<section class="section-list">
+
+    <div class="container">
+
+        <div class="post-wrapper">
+            <div class="row">
+
+
+                {% for article in articles|slice:":9" %}
+
+                    <!--ARTICLE-->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="post-box post-box-lg">
+                            <div class="post-box-img" id="bloglist">
+                                <a href="{% url 'detail' slug=article.slug %}">
+                                    <img src="/media/{{ article.image }}" alt="">
+                                </a>
+                            </div>
+                            <h3 class="post-box-title">
+                                <a href="{% url 'detail' slug=article.slug %}">{{ article.title }}</a>
+                            </h3>
+                            <p>
+                                {{ article.body|truncatechars:100 }}
+                            </p>
+                        </div>
+                    </div>
+
+
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <!--PAGINATION-->
+        <div class="pagination-wrapper">
+
+            <nav aria-label="Post pagination">
+              <ul class="pagination">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1"><span class="font-icon font-icon-arrow-left"></span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#"><span class="font-icon font-icon-arrow-right"></span></a>
+                </li>
+              </ul>
+            </nav>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+<header class="header hp-header" id="header">
+
+    <div class="container relative">
+      <nav class="navbar">
+        <a class="navbar-brand custom-logo-link" href="{{SITE_URL}}\">
+            <img src="{{SITE_URL}}/static/img/logo.svg" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="slide-collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <span class="header-tagline">Recipes for Your Medical Conditions.</span>
+        <div class="main-menu-wrapper" id="mainMenu">
+            <div class="menu-overlay">
+                <div class="container">
+                    <ul class="navbar-nav feat-nav" id="main-menu">
+                      <li class="nav-item menu-item active">
+                        <a class="nav-link" href="#">My Profile</a>
+                      </li>
+                      <li class="nav-item menu-item">
+                        <a class="nav-link" href="{{SITE_URL}}/recipes">Recipes</a>
+                      </li>
+                      <li class="nav-item menu-item">
+                        <a class="nav-link" href="#">Meal Planner <span>Pro</span></a>
+                      </li>
+                      <li class="nav-item menu-item">
+                        <a class="nav-link" href="{{SITE_URL}}/blog">News and Advices</a>
+                      </li>
+                      <li class="nav-item menu-item">
+                        <a class="nav-link" href="#">Contact</a>
+                      </li>
+                      <li class="nav-item menu-item mt-2">
+                        <a class="btn btn-outline-primary" href="#" data-toggle="modal" data-target="#modalLogin">Log In | Sign Up</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+          </div><!-- /.main-menu-wrapper -->
+          <a href="#" class="header-login" data-toggle="modal" data-target="#modalLogin"></a>
+          <a href="#" class="header-search js-search-toggle"></a>
+
+          <div class="search-overlay">
+            <div class="search-overlay-inner">
+                <a href="#" class="search-overlay-close js-search-toggle"></a>
+                <form>
+                      <div class="input-group-search">
+                          <button class="btn-search" type="button"></button>
+                        <input type="text" class="form-control" id="search" aria-describedby="search" placeholder="Search">
+                      </div>
+                      <p class="mt-2"><a href="{{SITE_URL}}/recipes" class="strong">Advanced Search</a></p>
+                    </form>
+                </div>
+          </div>
+
+      </nav>
+    </div>
+
+</header>

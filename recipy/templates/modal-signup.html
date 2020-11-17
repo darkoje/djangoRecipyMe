@@ -1,0 +1,60 @@
+<div class="modal fade" id="modalSignup" tabindex="-1" role="dialog" aria-labelledby="modalSignup" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="clearfix">
+        	<button type="button" class="close pb-3" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true"><span class="font-icon font-icon-close"></span></span>
+	        </button>
+        </div>
+        <div class="modal-body-wrapper">
+        	<div class="modal-logo">
+        		<img src="/static/img/logo.svg" alt="Logo">
+        	</div>
+
+
+            <form role="form" action="{% url "mysite_register" %}" method="post" accept-charset="utf-8">
+
+        		<div class="form-group">
+	        		<input type="email" placeholder="email" class="form-control" name="email">
+		      </div>
+		      <div class="form-group">
+        		<!--<input type="password" class="form-control" placeholder="password">-->
+        		<input type="password" placeholder="password" class="form-control" name="password">
+		      </div>
+		      <div class="form-group">
+        		<!--<input type="password" class="form-control" placeholder="confirm password">-->
+        		<input type="password" placeholder="confirm password" class="form-control" name="confirm_password">
+		      </div>
+		      <div class="form-group">
+        		<!--<input type="text" class="form-control" placeholder="username">-->
+        		<input type="text" placeholder="username" class="form-control" name="username">
+		      </div>
+		        <div class="custom-control my-1">
+			            <input type="checkbox" class="custom-control-input" id="Terms" name="terms">
+				        <label class="custom-control-label" for="Terms">I agree with the &nbsp;<a class="strong" href="#">terms of service</a>.</label>
+				    </div>
+		        <p class="text-center py-2">
+
+		                {% csrf_token %}
+
+						<button class="btn btn-primary" type="submit">Sign Up</button>
+			    </p>
+					<p class="text-center">or connect with</p>
+					<p class="text-center">
+						<a href="#" class="social-login-icon icon-facebook"></a>
+						<a href="#" class="social-login-icon icon-google"></a>
+						<a href="#" class="social-login-icon icon-twitter"></a>
+						<a href="#" class="social-login-icon icon-apple"></a>
+					</p>
+        	</form>
+				</div>
+      </div>
+      <div class="modal-footer">
+      	<p class="text-center w-100 py-3">
+    		Already a member? <a href="#" class="strong">Sign in</a>.
+    	</p>
+      </div>
+    </div>
+  </div>
+</div>

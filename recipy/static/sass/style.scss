@@ -1,0 +1,17 @@
+@import "theme/theme_variables";  // <--------- Add your variables into this file. Also add variables to overwrite Bootstrap variables here
+@import "assets/bootstrap";// <--------- Loads Bootstrap4
+
+@import "../css/bootstrap-multiselect.css";// <--------- Loads Bootstrap Multiselect
+
+@import "../css/bootstrap-datepicker.min.css";// <--------- Loads Bootstrap Datepicker
+
+@import "../css/swiper-6.2.0/swiper-bundle.min.css";// <--------- Loads Swiper
+
+@import "../css/select2.min.css";// <--------- Loads Select 2
+
+//@import "../css/dropzone/basic.css";// <--------- Loads Dropzone Basic Style
+//@import "../css/dropzone/dropzone.css";// <--------- Loads Dropzone
+
+// Any additional imported files //
+@import "theme/theme_mixins";  // <--------- Theme Mixins
+@import "theme/theme";  // <--------- Add your styles into this file
