@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+
+<section class="section last">
+
+	<div class="container">
+        <div class="container">
+            <h1>Profile</h1>
+            <p>Username: {{ user.username }}</p>
+            <p>Email: {{ user.email }}</p>
+
+            <p>City: {{ user.userprofile.city }}</p>
+            <p>Description: {{ user.userprofile.description }}</p>
+            <p>Phone: {{ user.userprofile.phone }}</p>
+            <p>Website: {{ user.userprofile.website }}</p>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

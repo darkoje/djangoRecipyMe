@@ -12,9 +12,9 @@
         <div class="modal-body-wrapper">
 
             <form method="POST" action="" enctype="multipart/form-data">
-                {% csrf_token %}
                 {{form|crispy}}
                 <p class="text-center py-2">
+                    {% csrf_token %}
 
                     <input class="btn btn-primary" type="submit" value={{title}} />
 

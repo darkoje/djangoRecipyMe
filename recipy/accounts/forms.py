@@ -1,11 +1,34 @@
 from django import forms
 from django.contrib.auth import (authenticate, get_user_model, login, logout)
-
 from crispy_forms.helper import FormHelper
+from django.contrib.auth.forms import  UserChangeForm
+
+from accounts.models import UserProfile
+
+from django.forms import ModelForm
 
 
 User = get_user_model()
 
+
+class EditProfileForm(UserChangeForm):
+    #template_name='/something/else'
+    template_name='accounts/edit_profile.html'
+
+    password = None
+
+    class Meta:
+        model = User
+        fields = ('username','email')
+        help_texts = {
+            'username': None,
+            'email': None,
+        }
+
+class ProfileForm(ModelForm):
+         class Meta:
+            model = UserProfile
+            fields = ('city', 'description', 'phone', 'website') #Note that we didn't mention user field here.
 
 class UserLoginForm(forms.Form):
 
@@ -56,7 +79,7 @@ class UserRegisterForm(forms.ModelForm):
             'username'
             ]
 
-    def clean(self):
+    def clean(self, *args, **kwargs):
         cleaned_data = super(UserRegisterForm, self).clean()
         password = cleaned_data.get("password")
         confirm_password = cleaned_data.get("confirm_password")
@@ -65,6 +88,8 @@ class UserRegisterForm(forms.ModelForm):
             raise forms.ValidationError(
                 "password and confirm_password does not match"
             )
+        return super(UserRegisterForm,self).clean(*args,**kwargs)
+
 
     # def clean(self, *args, **kwargs):
     #     email = self.cleaned_data.get("email")
