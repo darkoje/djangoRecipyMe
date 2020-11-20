@@ -45,25 +45,24 @@ class UserProfile(models.Model):
         ('allergen-4','Allergen 4'),
         ('allergen-5','Allergen 5'),
     )
-    #allergens = models.CharField(max_length=10, choices=ALLERGENS_OPTIONS)
-    allergens = MultiSelectField(max_length=100, choices=ALLERGENS_OPTIONS, blank=True)
+    allergens = MultiSelectField(max_length=120, choices=ALLERGENS_OPTIONS, blank=True)
 
     MEDICAL_CONDITIONS_OPTIONS = (
-        ('1','AIDS'),
-        ('2','Hearth Health'),
-        ('3','Kidney Disease'),
-        ('4','Diabetes'),
-        ('5','Cancer'),
-        ('6','Lupus'),
+        ('aids','AIDS'),
+        ('hearth-health','Hearth Health'),
+        ('kidney-disease','Kidney Disease'),
+        ('diabetes','Diabetes'),
+        ('cancer','Cancer'),
+        ('lupus','Lupus'),
     )
-    medical_conditions = MultiSelectField(max_length=14, choices=MEDICAL_CONDITIONS_OPTIONS, blank=True)
+    medical_conditions = MultiSelectField(max_length=120, choices=MEDICAL_CONDITIONS_OPTIONS, blank=True)
 
     RISK_FACTORS_OPTIONS = (
-        ('1','Weight loss within 3 months'),
-        ('2','Reduced dietary intake in the last week'),
-        ('3','ICU patient'),
+        ('weight-loss-within-3-months','Weight loss within 3 months'),
+        ('reduced-dietary-intake-in-the-last-week','Reduced dietary intake in the last week'),
+        ('icu-patient','ICU patient'),
     )
-    risk_factors = MultiSelectField(max_length=14, choices=RISK_FACTORS_OPTIONS, blank=True)
+    risk_factors = MultiSelectField(max_length=120, choices=RISK_FACTORS_OPTIONS, blank=True)
 
 
 

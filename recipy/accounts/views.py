@@ -12,6 +12,18 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserLoginForm, UserRegisterForm
 from accounts.forms import (EditProfileForm, ProfileForm)
 
+
+def prepare_for_preselect(saved_options):
+    data_for_preselect = []
+    for option in saved_options:
+        option = option.lower().replace(" ","-")
+        data_for_preselect.append(option)
+
+    if len(data_for_preselect) == 1:
+        data_for_preselect = "'" + data_for_preselect[0] + "'"
+    return data_for_preselect
+
+
 def login_view(request):
     title = "Login"
     form = UserLoginForm(request.POST or None)
@@ -38,14 +50,11 @@ def register_view(request):
         #confirm_password = form.cleaned_data.get("confirm_password")
         #email = form.cleaned_data.get("email")
         #terms = form.cleaned_data.get("terms")
-
         user.set_password(password)
         user.save()
 
         newuser = authenticate(username=username, password=password)
-
         login(request, newuser)
-
 
         return redirect("/")
         # redirect
@@ -85,6 +94,7 @@ def view_profile(request, pk=None):
 #EDIT PROFILE
 @login_required
 def edit_profile(request):
+
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=request.user)
         #profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.userprofile)  # request.FILES is to show the selected image or file
@@ -110,30 +120,14 @@ def edit_profile(request):
         args['profile_form'] = profile_form
         args['user'] = request.user
 
-        # FORMAT ALLERGENS FOR SELECT2 JQUERRY OPTIONS IN FRONTEND
-        saved_allergens = request.user.userprofile.allergens
-        allergens = []
-        for allergen in saved_allergens:
-            allergen = allergen.lower().replace(" ","-")
-            allergens.append(allergen)
-
-        if len(allergens) == 1:
-            allergens= "'" + allergens[0] + "'"
-
+        allergens = prepare_for_preselect(request.user.userprofile.allergens)
         args['allergens'] = allergens
 
+        medical_conditions = prepare_for_preselect(request.user.userprofile.medical_conditions)
+        args['medical_conditions'] = medical_conditions
+
+        risk_factors = prepare_for_preselect(request.user.userprofile.risk_factors)
+        args['risk_factors'] = risk_factors
+
+        # RENDER THE EDIT PROFILE FORM
         return render(request, 'accounts/edit_profile.html', args)
-
-
-
-
-# def edit_profile(request):
-#     if request.method == 'POST':
-#         form = EditProfileForm(request.POST, instance=request.user)
-#         if form.is_valid():
-#             form.save()
-#             return redirect(reverse('accounts:view_profile'))
-#     else:
-#         form = EditProfileForm(instance=request.user)
-#         context = {'form': form}
-#         return render(request, 'accounts/edit_profile.html', context)
