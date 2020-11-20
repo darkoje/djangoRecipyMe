@@ -47,24 +47,24 @@ $(function() {
 
 $(function() {
 
-    $('#multiselect-medical-conditions').multiselect({
-    //includeSelectAllOption: true,
-    buttonClass: 'form-control',
-    buttonWidth: '100%',
-    buttonText: function(options, select) {
-      return 'medical conditions';
-    },
-    maxHeight: 400,
-    });
+    // $('#multiselect-medical-conditions').multiselect({
+    // //includeSelectAllOption: true,
+    // buttonClass: 'form-control',
+    // buttonWidth: '100%',
+    // buttonText: function(options, select) {
+    //   return 'medical conditions';
+    // },
+    // maxHeight: 400,
+    // });
 
-    $('#multiselect-alergens').multiselect({
-    //includeSelectAllOption: true,
-    buttonClass: 'form-control',
-    buttonWidth: '100%',
-    buttonText: function(options, select) {
-      return 'alergens';
-    },
-    });
+    // $('#multiselect-alergens').multiselect({
+    // //includeSelectAllOption: true,
+    // buttonClass: 'form-control',
+    // buttonWidth: '100%',
+    // buttonText: function(options, select) {
+    //   return 'alergens';
+    // },
+    // });
 
     $('#multiselect-course').multiselect({
     //includeSelectAllOption: true,
@@ -76,3 +76,100 @@ $(function() {
     });
 
 });
+
+
+
+
+
+$(function() {
+
+	$('#multiselect-alergens').select2({
+		width: '100%',
+		placeholder: "Add / Remove",
+	});
+
+	$('#multiselect-medical-conditions').select2({
+		width: '100%',
+		placeholder: "Add / Remove",
+	});
+
+	$('#multiselect-risk-factors').select2({
+		width: '100%',
+		placeholder: "Add / Remove",
+	});
+
+    $('#multiselect-meals-per-day').val("").multiselect({
+    //includeSelectAllOption: true,
+    buttonClass: 'form-control',
+    buttonWidth: '100%',
+    buttonText: function(options, select) {
+      if (options.length === 0) {
+          return 'meals per day';
+      }
+      else {
+        var labels = [];
+        options.each(function() {
+          if ($(this).attr('label') !== undefined) {
+            labels.push($(this).attr('label'));
+          }
+          else {
+            labels.push($(this).html());
+          }
+        });
+        return labels.join(', ') + '';
+      }
+    }
+    });
+
+    $('#multiselect-sex').val("").multiselect({
+    //includeSelectAllOption: true,
+    buttonClass: 'form-control',
+    buttonWidth: '100%',
+    buttonText: function(options, select) {
+      if (options.length === 0) {
+          return 'biological sex';
+      }
+      else {
+        var labels = [];
+        options.each(function() {
+          if ($(this).attr('label') !== undefined) {
+            labels.push($(this).attr('label'));
+          }
+          else {
+            labels.push($(this).html());
+          }
+        });
+        return labels.join(', ') + '';
+      }
+    }
+    });
+
+    $('#multiselect-metrics').val("").multiselect({
+    //includeSelectAllOption: true,
+    buttonClass: 'form-control',
+    buttonWidth: '100%',
+
+    buttonText: function(options, select) {
+      if (options.length === 0) {
+          return 'Select metrics';
+      }
+      else {
+        var labels = [];
+        options.each(function() {
+          if ($(this).attr('label') !== undefined) {
+            labels.push($(this).attr('label'));
+          }
+          else {
+            labels.push($(this).html());
+          }
+        });
+        return labels.join(', ') + '';
+      }
+    }
+    });
+
+    $('.datepicker').datepicker();
+
+});
+
+

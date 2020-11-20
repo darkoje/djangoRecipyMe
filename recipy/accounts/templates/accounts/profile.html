@@ -5,18 +5,93 @@
 
 
 
+<section class="section section-profile-edit last">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-6">
+				<div class="form-group">
+					<label class="label-feat" for="Username">Username</label>
+					<p>{{ user.username }}</p>
+				</div>
+				<div class="form-group">
+					<label class="label-feat" for="Email">Email</label>
+					<p>{{ user.email }}</p>
+				</div>
+				<div class="form-group">
+					<label class="label-feat" for="BirthDate">Birth Date</label>
+					<!--<p>10/10/1980</p>-->
+					<p>{{ user.userprofile.birthdate }}</p>
+				</div>
+				<div class="form-group">
+					<label class="label-feat" for="Metrics">Metrics</label>
+					<p>{{ user.userprofile.get_metrics_display }}</p>
+				</div>
+			</div>
+
+
+
+
+			<div class="col-lg-4 col-md-6">
+				<div class="form-group">
+					<label class="label-feat" for="BiologicalSex">Biological Sex</label>
+    		<p>{{ user.userprofile.get_sex_display }}</p>
+        </div>
+				<div class="form-group">
+					<label class="label-feat" for="Height">Height</label>
+					<p>{{ user.userprofile.height }}</p>
+				</div>
+				<div class="form-group">
+					<label class="label-feat" for="Weight">Weight</label>
+					<p>{{ user.userprofile.weight }}</p>
+				</div>
+				<div class="form-group">
+    		<label class="label-feat" for="MealsPerDay">Meals per Day</label>
+    		<p>{{ user.userprofile.meals_per_day }}</p>
+        </div>
+			</div>
+
+			<div class="col-lg-4 col-md-6">
+				<div class="form-group">
+					<label class="label-feat" for="Alergens">Alergens</label>
+					<p>{% if user.userprofile.allergens %}{{ user.userprofile.get_allergens_display }}{% else %}No Allergens{% endif %}</p>
+				</div>
+				<div class="form-group">
+					<label class="label-feat" for="MedicalConditions">Medical Conditions</label>
+					<p>{% if user.userprofile.medical_conditions %}{{ user.userprofile.get_medical_conditions_display }}{% else %}No Medical Conditions{% endif %}</p>
+				</div>
+				<div class="form-group">
+					<label class="label-feat" for="RiskFactors">Risk Factors</label>
+					<p>{% if user.userprofile.risk_factors %}{{ user.userprofile.get_risk_factors_display }}{% else %}No Risk Factors{% endif %}</p>
+				</div>
+			</div>
+		</div>
+		<p class="text-center pt-3">
+			<a href="/profile/edit" class="btn btn-primary" >Edit My Profile</a>
+		</p>
+		<p class="text-center">
+			<a href="#" class="strong" data-toggle="modal" data-target="#modalChangePassword">Change Password</a>
+		</p>
+	</div>
+</section>
+
 <section class="section last">
 
 	<div class="container">
         <div class="container">
-            <h1>Profile</h1>
+            <h1>TEST SECTION</h1>
             <p>Username: {{ user.username }}</p>
             <p>Email: {{ user.email }}</p>
 
-            <p>City: {{ user.userprofile.city }}</p>
-            <p>Description: {{ user.userprofile.description }}</p>
-            <p>Phone: {{ user.userprofile.phone }}</p>
-            <p>Website: {{ user.userprofile.website }}</p>
+            <p>Birthdate: {{ user.userprofile.birthdate }}</p>
+            <p>Metrics: {{ user.userprofile.get_metrics_display }}</p>
+            <p>Biological sex: {{ user.userprofile.get_sex_display }}</p>
+            <p>Height: {{ user.userprofile.height }}</p>
+            <p>Weight: {{ user.userprofile.weight }}</p>
+            <p>Meals per day: {{ user.userprofile.meals_per_day }}</p>
+            <p>Allergens: {% if user.userprofile.allergens %}{{ user.userprofile.get_allergens_display }}{% else %}No Allergens{% endif %}</p>
+            <p>Medical Conditions: {% if user.userprofile.medical_conditions %}{{ user.userprofile.get_medical_conditions_display }}{% else %}No Medical Conditions{% endif %}</p>
+            <p>Risk Factors: {% if user.userprofile.risk_factors %}{{ user.userprofile.get_risk_factors_display }}{% else %}No Risk Factors{% endif %}</p>
+
 
         </div>
     </div>

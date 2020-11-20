@@ -7,6 +7,8 @@ from accounts.models import UserProfile
 
 from django.forms import ModelForm
 
+from multiselectfield import MultiSelectFormField
+
 
 User = get_user_model()
 
@@ -25,10 +27,33 @@ class EditProfileForm(UserChangeForm):
             'email': None,
         }
 
+
 class ProfileForm(ModelForm):
-         class Meta:
-            model = UserProfile
-            fields = ('city', 'description', 'phone', 'website') #Note that we didn't mention user field here.
+
+    #metrics = forms.ChoiceField(choices=UserProfile.METRICS_OPTIONS, widget=forms.RadioSelect())
+    metrics = forms.ChoiceField(choices=UserProfile.METRICS_OPTIONS, widget=forms.Select())
+    sex = forms.ChoiceField(choices=UserProfile.SEX_OPTIONS, widget=forms.Select())
+    meals_per_day = forms.ChoiceField(choices=UserProfile.MEALS_PER_DAY_OPTIONS, widget=forms.Select())
+
+    # allergens = forms.MultipleChoiceField(choices=UserProfile.ALLERGENS_OPTIONS, widget=forms.CheckboxSelectMultiple())
+
+    #allergens = MultiSelectFormField(choices=UserProfile.ALLERGENS_OPTIONS, required=False)
+    allergens = MultiSelectFormField(choices=UserProfile.ALLERGENS_OPTIONS, required=False)
+    medical_conditions = MultiSelectFormField(choices=UserProfile.MEDICAL_CONDITIONS_OPTIONS, required=False)
+    risk_factors = MultiSelectFormField(choices=UserProfile.RISK_FACTORS_OPTIONS, required=False)
+
+
+
+
+    # def __init__(self, *args, **kwargs):
+    #     super(ProfileForm, self).__init__(*args, **kwargs)
+    #     self.fields['allergens'].choices.insert(0, ('','---------' ) )
+
+
+
+    class Meta:
+        model = UserProfile
+        fields = ('birthdate', 'metrics', 'sex', 'height', 'weight','meals_per_day', 'allergens', 'medical_conditions', 'risk_factors') #Note that we didn't mention user field here.
 
 class UserLoginForm(forms.Form):
 

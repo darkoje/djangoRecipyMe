@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import (authenticate, get_user_model, login, logout)
-from .forms import UserLoginForm, UserRegisterForm
-from accounts.forms import (EditProfileForm, ProfileForm)
+
 from django.contrib.auth.views import LogoutView
 from django.contrib import messages
 from django.urls import reverse
@@ -10,6 +9,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 
+from .forms import UserLoginForm, UserRegisterForm
+from accounts.forms import (EditProfileForm, ProfileForm)
 
 def login_view(request):
     title = "Login"
@@ -52,6 +53,8 @@ def register_view(request):
     context = {"form":form,"title":title}
     return render(request, "authenticate.html", context)
 
+
+@login_required
 def logout_view(LogoutView):
 
     # TRY TO RETURN MESSAGE TO THE TEMPLATE
@@ -67,7 +70,9 @@ def logout_view(LogoutView):
     logout(LogoutView)
     return redirect("/")
 
+
 #PROFILE VIEW
+@login_required
 def view_profile(request, pk=None):
     if pk:
         user = User.objects.get(pk=pk)
@@ -75,6 +80,7 @@ def view_profile(request, pk=None):
         user = request.user
     context = {'user': user}
     return render(request, 'accounts/profile.html', context)
+
 
 #EDIT PROFILE
 @login_required
@@ -88,9 +94,13 @@ def edit_profile(request):
             user_form = form.save()
             custom_form = profile_form.save(False)
             custom_form.user = user_form
-            custom_form.save()
-            # return redirect('accounts:view_profile')
-            return redirect('/profile/')
+            try:
+                custom_form.save()
+                return redirect('/profile/')
+
+            except:
+                pass
+
     else:
         form = EditProfileForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.userprofile)
@@ -98,6 +108,20 @@ def edit_profile(request):
         # args.update(csrf(request))
         args['form'] = form
         args['profile_form'] = profile_form
+        args['user'] = request.user
+
+        # FORMAT ALLERGENS FOR SELECT2 JQUERRY OPTIONS IN FRONTEND
+        saved_allergens = request.user.userprofile.allergens
+        allergens = []
+        for allergen in saved_allergens:
+            allergen = allergen.lower().replace(" ","-")
+            allergens.append(allergen)
+
+        if len(allergens) == 1:
+            allergens= "'" + allergens[0] + "'"
+
+        args['allergens'] = allergens
+
         return render(request, 'accounts/edit_profile.html', args)
 
 

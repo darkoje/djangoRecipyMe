@@ -14,9 +14,9 @@
 
 							  	<p>
 							  	    {% if user.is_superuser %}
-							  	    Hello <span class="feat strong">{{user.username}}</span>, <span><a href="/admin">staff area</a></span>, <span>profile</span> or <span><a href="/logout">logout</a></span>.
+							  	    Hello <span class="feat strong">{{user.username}}</span>, <span><a href="/admin">staff area</a></span>, <span><a href="/profile">profile</a></span> or <span><a href="/logout">logout</a></span>.
                                     {% elif user.is_authenticated %}
-                                    Hello <span class="feat strong">{{user.username}}</span>, <span>profile</span> or <span><a href="/logout">logout</a></span>.
+                                    Hello <span class="feat strong">{{user.username}}</span>, <span><a href="/profile">profile</a></span> or <span><a href="/logout">logout</a></span>.
                                     {% else %}
     						  	    Hello. <a href="#" data-toggle="modal" data-target="#modalLogin">Login</a> or <a href="#" data-toggle="modal" data-target="#modalSignup">Sign up</a>.
                                     {% endif %}
