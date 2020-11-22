@@ -83,22 +83,22 @@ $(function() {
 
 $(function() {
 
-	$('#multiselect-alergens').select2({
+	$('#id_allergens').select2({
 		width: '100%',
 		placeholder: "Add / Remove",
 	});
 
-	$('#multiselect-medical-conditions').select2({
+	$('#id_medical_conditions').select2({
 		width: '100%',
 		placeholder: "Add / Remove",
 	});
 
-	$('#multiselect-risk-factors').select2({
+	$('#id_risk_factors').select2({
 		width: '100%',
 		placeholder: "Add / Remove",
 	});
 
-    $('#multiselect-meals-per-day').val("").multiselect({
+    $('#id_meals-per-day').val("").multiselect({
     //includeSelectAllOption: true,
     buttonClass: 'form-control',
     buttonWidth: '100%',

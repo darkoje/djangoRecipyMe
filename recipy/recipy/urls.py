@@ -6,6 +6,7 @@ from accounts.views import (login_view, register_view, logout_view, view_profile
 from articles.views import (featured_article)
 from homepage.views import (homepage)
 
+
 admin.site.site_header = 'Recipy.me Staff Area'
 admin.site.site_title = 'Recipy.me'
 admin.site.index_title = 'Staff Area'
@@ -21,7 +22,7 @@ urlpatterns = [
     url(r'^accounts/', include('accounts.urls')),
 
     url(r'^profile/$', view_profile, name="profile"),
-    url(r'^profile/edit$', edit_profile, name="profile"),
+    url(r'^profile/edit', edit_profile, name="edit_profile"),
 
     url(r'^recipes', TemplateView.as_view(template_name='recipes-list.html'),
         name='recipes'),

@@ -20,8 +20,8 @@ class UserProfile(models.Model):
     metrics = models.CharField(max_length=3, choices=METRICS_OPTIONS, default='EU' )
 
     SEX_OPTIONS = (
-        ('M','MALE'),
-        ('F','FEMALE'),
+        ('M','Male'),
+        ('F','Female'),
     )
     sex = models.CharField(max_length=7, choices=SEX_OPTIONS, default='F' )
 
@@ -30,11 +30,11 @@ class UserProfile(models.Model):
     weight = models.PositiveSmallIntegerField(default=0)
 
     MEALS_PER_DAY_OPTIONS = (
-        ('1','1'),
-        ('2','2'),
-        ('3','3'),
-        ('4','4'),
-        ('5','5'),
+        ('1','1 meal'),
+        ('2','2 meals'),
+        ('3','3 meals'),
+        ('4','4 meals'),
+        ('5','5 meals'),
     )
     meals_per_day = models.CharField(max_length=1, choices=MEALS_PER_DAY_OPTIONS, default='3')
 
@@ -45,7 +45,7 @@ class UserProfile(models.Model):
         ('allergen-4','Allergen 4'),
         ('allergen-5','Allergen 5'),
     )
-    allergens = MultiSelectField(max_length=120, choices=ALLERGENS_OPTIONS, blank=True)
+    allergens = MultiSelectField(max_length=120, choices=ALLERGENS_OPTIONS, blank=True, verbose_name="allergens")
 
     MEDICAL_CONDITIONS_OPTIONS = (
         ('aids','AIDS'),
@@ -55,14 +55,31 @@ class UserProfile(models.Model):
         ('cancer','Cancer'),
         ('lupus','Lupus'),
     )
-    medical_conditions = MultiSelectField(max_length=120, choices=MEDICAL_CONDITIONS_OPTIONS, blank=True)
+
+    # MEDICAL_CONDITIONS_OPTIONS = (
+    #     ('Group 1',(
+    #         (1,'AIDS'),
+    #         (2,'Hearth Health'),
+    #         (3,'Kidney Disease')
+    #       )
+    #     ),
+
+    #     ('Group 2',(
+    #         (4,'Diabetes'),
+    #         (5,'Cancer'),
+    #         (6,'Lupus')
+    #       )
+    #     )
+    # )
+
+    medical_conditions = MultiSelectField(max_length=240, choices=MEDICAL_CONDITIONS_OPTIONS, blank=True, verbose_name="medical_conditions")
 
     RISK_FACTORS_OPTIONS = (
         ('weight-loss-within-3-months','Weight loss within 3 months'),
         ('reduced-dietary-intake-in-the-last-week','Reduced dietary intake in the last week'),
         ('icu-patient','ICU patient'),
     )
-    risk_factors = MultiSelectField(max_length=120, choices=RISK_FACTORS_OPTIONS, blank=True)
+    risk_factors = MultiSelectField(max_length=120, choices=RISK_FACTORS_OPTIONS, blank=True, verbose_name="risk_factors")
 
 
 

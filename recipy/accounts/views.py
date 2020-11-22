@@ -12,16 +12,19 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserLoginForm, UserRegisterForm
 from accounts.forms import (EditProfileForm, ProfileForm)
 
+#we need this to fetch options
+from accounts.models import UserProfile
 
-def prepare_for_preselect(saved_options):
-    data_for_preselect = []
-    for option in saved_options:
-        option = option.lower().replace(" ","-")
-        data_for_preselect.append(option)
 
-    if len(data_for_preselect) == 1:
-        data_for_preselect = "'" + data_for_preselect[0] + "'"
-    return data_for_preselect
+# def prepare_for_preselect(saved_options):
+#     data_for_preselect = []
+#     for option in saved_options:
+#         option = option.lower().replace(" ","-")
+#         data_for_preselect.append(option)
+
+#     if len(data_for_preselect) == 1:
+#         data_for_preselect = "'" + data_for_preselect[0] + "'"
+#     return data_for_preselect
 
 
 def login_view(request):
@@ -97,7 +100,6 @@ def edit_profile(request):
 
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=request.user)
-        #profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.userprofile)  # request.FILES is to show the selected image or file
         profile_form = ProfileForm(request.POST, instance=request.user.userprofile)
 
         if form.is_valid() and profile_form.is_valid():
@@ -115,19 +117,20 @@ def edit_profile(request):
         form = EditProfileForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.userprofile)
         args = {}
-        # args.update(csrf(request))
         args['form'] = form
         args['profile_form'] = profile_form
         args['user'] = request.user
+        # args['meals_per_day_options'] = UserProfile.MEALS_PER_DAY_OPTIONS
+        # args['allergens_options'] = UserProfile.ALLERGENS_OPTIONS
 
-        allergens = prepare_for_preselect(request.user.userprofile.allergens)
-        args['allergens'] = allergens
+        # # medical_conditions = prepare_for_preselect(request.user.userprofile.medical_conditions)
+        # # args['medical_conditions'] = medical_conditions
+        # args['medical_conditions_options'] = UserProfile.MEDICAL_CONDITIONS_OPTIONS
 
-        medical_conditions = prepare_for_preselect(request.user.userprofile.medical_conditions)
-        args['medical_conditions'] = medical_conditions
+        # # risk_factors = prepare_for_preselect(request.user.userprofile.risk_factors)
+        # # args['risk_factors'] = risk_factors
+        # args['risk_factors_options'] = UserProfile.RISK_FACTORS_OPTIONS
 
-        risk_factors = prepare_for_preselect(request.user.userprofile.risk_factors)
-        args['risk_factors'] = risk_factors
 
         # RENDER THE EDIT PROFILE FORM
         return render(request, 'accounts/edit_profile.html', args)

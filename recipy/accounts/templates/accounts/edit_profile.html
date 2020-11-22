@@ -1,214 +1,111 @@
 {% extends 'base.html' %}
 
-
-{% block title %}
-Edit Profile
-{% endblock title %}
+{% block title %}Edit Profile{% endblock title %}
 
 {% block content %}
 
 <section class="section section-profile-edit last">
 	<div class="container">
-		<form action="" class="mb-0">
-			<div class="row">
+		<form action="/profile/edit" method="post" class="mb-0">
+
+		    <div class="row">
+
 				<div class="col-lg-4 col-md-6">
 
-					<div class="form-group">
-						<label class="label-feat" for="Username">Username</label>
-						<input type="text" class="form-control" id="Username" placeholder="Username" value="{{ user.username }}">
-					</div>
+				    <div class="form-group">
+					<label class="label-feat" for="id_username">Username</label>
+				    {{ form.username.errors }}
+                    {{ form.username }}
+				    </div>
 
-					<div class="form-group">
-						<label class="label-feat" for="Email">Email</label>
-						<input type="email" class="form-control" id="Email" placeholder="Email" value="{{ user.email }}">
-					</div>
+				    <div class="form-group">
+				    <label class="label-feat" for="id_email">Email</label>
+				    {{ form.email.errors }}
+                    {{ form.email }}
+				    </div>
 
-					<div class="form-group">
-						<label class="label-feat" for="BirthDate">Birth Date</label>
-						<div class="input-group input-group-date">
-					    <input type="text" class="form-control" data-provide="datepicker" value="{{ user.userprofile.birthdate }}">
-						</div>
-					</div>
+				    <div class="form-group">
+					<label class="label-feat" for="id_birthdate">Birth Date</label>
+				    {{ profile_form.birthdate.errors }}
+                        <div class="input-group input-group-date">
+                        {{ profile_form.birthdate }}
+                        </div>
+				    </div>
 
-					<div class="form-group">
-						<label class="label-feat" for="Metrics">Metrics</label>
-        		        <select id="multiselect-metrics" class="" id="Metrics">
-	                        <option value="usa">USA</option>
-	                        <option value="eu">EU</option>
-	                        <option value="uk">UK</option>
-	        	        </select>
-	                </div>
-	                <!--PREPOPULATE METRICS-->
+				    <div class="form-group">
+				    <label class="label-feat" for="id_metrics">Metrics</label>
+				    {{ profile_form.metrics.errors }}
+                    {{ profile_form.metrics }}
+				    </div>
 	                <script type="text/javascript">
-                        $('#multiselect-metrics').val(['{{user.userprofile.get_metrics_display|lower}}']);
-                        $('#multiselect-metrics').multiselect({buttonClass: 'form-control',  buttonWidth: '100%'});
-			            $("#multiselect-metrics").multiselect("refresh");
+                     $('#id_metrics').multiselect({buttonClass: 'form-control',  buttonWidth: '100%'});
 			        </script>
 
 				</div>
 
 				<div class="col-lg-4 col-md-6">
 
-				    <!--SEX-->
-					<div class="form-group">
-						<label class="label-feat" for="BiologicalSex">Biological Sex</label>
-                		<select id="multiselect-sex" class="" id="BiologicalSex">
-        	            <option value="female">Female</option>
-        	            <option value="male">Male</option>
-        	        	</select>
-        	        </div>
-        	        <!--PREPOPULATE SEX-->
-	                <script type="text/javascript">
-                        $('#multiselect-sex').val(['{{user.userprofile.get_sex_display|lower}}']);
-                        $('#multiselect-sex').multiselect({buttonClass: 'form-control',  buttonWidth: '100%'});
-			            $("#multiselect-sex").multiselect("refresh");
+				    <div class="form-group">
+				    <label class="label-feat" for="id_sex">Biological Sex</label>
+				    {{ profile_form.sex.errors }}
+                    {{ profile_form.sex }}
+				    </div>
+				    <script type="text/javascript">
+                     $('#id_sex').multiselect({buttonClass: 'form-control',  buttonWidth: '100%'});
 			        </script>
 
-                    <!--HEIGHT-->
-					<div class="form-group">
-						<label class="label-feat" for="Height">Height</label>
-						{% if user.userprofile.get_sex_display %}
-						<input type="text" class="form-control" id="Height" value="{{user.userprofile.height}}">
-						{% else %}
-						<input type="text" class="form-control" id="Height" placeholder="Enter your height">
-						{% endif %}
-					</div>
+				    <div class="form-group">
+					<label class="label-feat" for="id_height">Height</label>
+				    {{ profile_form.height.errors }}
+                    {{ profile_form.height }}
+				    </div>
 
-                    <!--WEIGHT-->
-					<div class="form-group">
-						<label class="label-feat" for="Weight">Weight</label>
-						{% if user.userprofile.get_sex_display %}
-						<input type="text" class="form-control" id="Weight" value="{{user.userprofile.weight}}">
-						{% else %}
-						<input type="text" class="form-control" id="Weight" placeholder="Enter your weight">
-						{% endif %}
-					</div>
+				    <div class="form-group">
+					<label class="label-feat" for="id_weight">Height</label>
+				    {{ profile_form.weight.errors }}
+                    {{ profile_form.weight }}
+				    </div>
 
-                    <!--MEALS PER DAY-->
-					<div class="form-group">
-                		<label class="label-feat" for="MealsPerDay">Meals per Day</label>
-                		<select id="multiselect-meals-per-day" class="" id="MealsPerDay">
-            	            <option value="1">1 meal</option>
-            	            <option value="2">2 meals</option>
-            	            <option value="3">3 meals</option>
-            	            <option value="4">4 meals</option>
-             	            <option value="4">4 meals</option>
-        	        	</select>
-        	        </div>
-        	        <!--PREPOPULATE MEALS PER DAY-->
-	                <script type="text/javascript">
-                        $('#multiselect-meals-per-day').val(['{{user.userprofile.meals_per_day}}']);
-                        $('#multiselect-meals-per-day').multiselect({buttonClass: 'form-control',  buttonWidth: '100%'});
-			            $("#multiselect-meals-per-day").multiselect("refresh");
-			        </script>
+				    <div class="form-group">
+					<label class="label-feat" for="id_meals_per_day">Meals per day</label>
+				    {{ profile_form.meals_per_day.errors }}
+                    {{ profile_form.meals_per_day }}
+				    </div>
+                    <script type="text/javascript">
+                        $('#id_meals_per_day').multiselect({buttonClass: 'form-control',  buttonWidth: '100%'});
+                    </script>
 
 				</div>
 
 				<div class="col-lg-4 col-md-6">
 
-                    <!--ALLERGENS-->
-					<div class="form-group">
-						<label class="label-feat" for="Alergens">Alergens</label>
-						<select  id="multiselect-alergens"  id="Alergens" multiple="multiple">
-            	            <option value="allergen-1">Allergen 1</option>
-            	            <option value="allergen-2">Allergen 2</option>
-            	            <option value="allergen-3">Allergen 3</option>
-            	            <option value="allergen-4">Allergen 4</option>
-            	            <option value="allergen-5">Allergen 5</option>
-            	            <option value="allergen-6">Allergen 6</option>
-	        	        </select>
-					</div>
-           	        <!--PREPOPULATE ALLERGENS-->
-					<script type="text/javascript">
-                        $('#multiselect-alergens').val({{allergens|safe}});
-                        $('#multiselect-alergens').trigger('change');
-			        </script>
+				    <div class="form-group">
+					<label class="label-feat" for="id_allergens">Allergens</label>
+				    {{ profile_form.allergens.errors }}
+                    {{ profile_form.allergens }}
+				    </div>
 
-                    <!--MEDICAL CONDITIONS-->
-					<div class="form-group">
-						<label class="label-feat" for="MedicalConditions">Medical Conditions</label>
-						<select id="multiselect-medical-conditions" class="" multiple="multiple" id="MedicalConditions">
-                          <optgroup class="group-1" label="Group 1">
-	                        <option value="aids">AIDS</option>
-        		            <option value="hearth-health">Hearth Health</option>
-        		            <option value="kidney-disease">Kidney Disease</option>
-        		          </optgroup>
-        		          <optgroup class="group-2" label="Group 2">
-        		            <option value="diabetes">Diabetes</option>
-        		            <option value="cancer">Cancer</option>
-        		            <option value="lupus">Lupus</option>
-        		          </optgroup>
-        		          <!--<optgroup class="group-3" label="Group 3">-->
-        		          <!--  <option value="diabetes">Diabetes</option>-->
-        		          <!--  <option value="cancer">Cancer</option>-->
-        		          <!--  <option value="lupus">Lupus</option>-->
-        		          <!--</optgroup>-->
-        		          <!--<optgroup class="group-4" label="Group 4">-->
-        		          <!--  <option value="diabetes">Diabetes</option>-->
-        		          <!--  <option value="cancer">Cancer</option>-->
-        		          <!--  <option value="lupus">Lupus</option>-->
-        		          <!--</optgroup>-->
-        		          <!--<optgroup class="group-5" label="Group 5">-->
-        		          <!--  <option value="diabetes">Diabetes</option>-->
-        		          <!--  <option value="cancer">Cancer</option>-->
-        		          <!--  <option value="lupus">Lupus</option>-->
-        		          <!--</optgroup>-->
-        		          <!--<optgroup class="group-6" label="Group 6">-->
-        		          <!--  <option value="diabetes">Diabetes</option>-->
-        		          <!--  <option value="cancer">Cancer</option>-->
-        		          <!--  <option value="lupus">Lupus</option>-->
-        		          <!--</optgroup>-->
-        		          <!--<optgroup class="group-7" label="Group 7">-->
-        		          <!--  <option value="diabetes">Diabetes</option>-->
-        		          <!--  <option value="cancer">Cancer</option>-->
-        		          <!--  <option value="lupus">Lupus</option>-->
-        		          <!--</optgroup>-->
-        	        	</select>
-					</div>
-					<!--PREPOPULATE MEDICAL CONDITIONS-->
-					<script type="text/javascript">
-                        $('#multiselect-medical-conditions').val({{medical_conditions|safe}});
-                        $('#multiselect-medical-conditions').trigger('change');
-			        </script>
+				    <div class="form-group">
+				    <label class="label-feat" for="id_medical_conditions">Medical conditions</label>
+				    {{ profile_form.medical_conditions.errors }}
+                    {{ profile_form.medical_conditions }}
+				    </div>
 
-                    <!--RISK FACTORS-->
-					<div class="form-group">
-						<label class="label-feat" for="RiskFactors">Risk Factors</label>
-						<select  id="multiselect-risk-factors"  id="RiskFactors" multiple="multiple">
-            	            <option value="weight-loss-within-3-months">Weight loss within 3 months</option>
-            	            <option value="reduced-dietary-intake-in-the-last-week">Reduced dietary intake in the last week</option>
-            	            <option value="icu-patient">ICU patient</option>
-        	        	</select>
-					</div>
-					<!--PREPOPULATE RISK FACTORS-->
-					<script type="text/javascript">
-                        $('#multiselect-risk-factors').val({{risk_factors|safe}});
-                        $('#multiselect-risk-factors').trigger('change');
-			        </script>
-
+				    <div class="form-group">
+				    <label class="label-feat" for="id_risk_factors">Risk factors</label>
+				    {{ profile_form.risk_factors.errors }}
+                    {{ profile_form.risk_factors }}
+				    </div>
 				</div>
+
 			</div>
-			<p class="text-center pt-3">
-				<button class="btn btn-primary" type="submit" disabled="disabled">Save Profile</button>
-			</p>
-		</form>
-	</div>
-</section>
-
-
-<!--DEVELOPER SECTION-->
-<section class="section last">
-
-    <div class="container">
-        <h1>Developer Section</h1>
-
-        <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
-            {{ profile_form.as_p }}
-            <button type="submit">Submit</button>
+			<p class="text-center pt-3">
+			    <button class="btn btn-primary" type="submit">Save Profile</button>
+		    </p>
+
         </form>
-        <br>
     </div>
 </section>
+
 {% endblock %}
