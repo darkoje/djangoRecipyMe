@@ -7,6 +7,7 @@
 <section class="section section-profile-edit last">
 	<div class="container">
 		<form action="/profile/edit" method="post" class="mb-0">
+            {% csrf_token %}
 
 		    <div class="row">
 
@@ -61,7 +62,7 @@
 				    </div>
 
 				    <div class="form-group">
-					<label class="label-feat" for="id_weight">Height</label>
+					<label class="label-feat" for="id_weight">Weight</label>
 				    {{ profile_form.weight.errors }}
                     {{ profile_form.weight }}
 				    </div>
@@ -99,7 +100,6 @@
 				</div>
 
 			</div>
-            {% csrf_token %}
 			<p class="text-center pt-3">
 			    <button class="btn btn-primary" type="submit">Save Profile</button>
 		    </p>

@@ -47,24 +47,24 @@ $(function() {
 
 $(function() {
 
-    // $('#multiselect-medical-conditions').multiselect({
-    // //includeSelectAllOption: true,
-    // buttonClass: 'form-control',
-    // buttonWidth: '100%',
-    // buttonText: function(options, select) {
-    //   return 'medical conditions';
-    // },
-    // maxHeight: 400,
-    // });
+    $('#multiselect-medical-conditions').multiselect({
+    //includeSelectAllOption: true,
+    buttonClass: 'form-control',
+    buttonWidth: '100%',
+    buttonText: function(options, select) {
+      return 'medical conditions';
+    },
+    maxHeight: 400,
+    });
 
-    // $('#multiselect-alergens').multiselect({
-    // //includeSelectAllOption: true,
-    // buttonClass: 'form-control',
-    // buttonWidth: '100%',
-    // buttonText: function(options, select) {
-    //   return 'alergens';
-    // },
-    // });
+    $('#multiselect-alergens').multiselect({
+    //includeSelectAllOption: true,
+    buttonClass: 'form-control',
+    buttonWidth: '100%',
+    buttonText: function(options, select) {
+      return 'alergens';
+    },
+    });
 
     $('#multiselect-course').multiselect({
     //includeSelectAllOption: true,

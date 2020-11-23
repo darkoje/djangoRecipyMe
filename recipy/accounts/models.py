@@ -10,7 +10,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,
         primary_key=True,)
 
-    birthdate = models.DateField(null=True)
+    birthdate = models.DateField(null=True, blank=True)
 
     METRICS_OPTIONS = (
         ('US','USA'),
