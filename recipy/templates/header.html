@@ -27,13 +27,21 @@
                         <a class="nav-link" href="#">Contact</a>
                       </li>
                       <li class="nav-item menu-item mt-2">
+                        {% if user.is_authenticated %}
+                        <a class="btn btn-outline-primary" href="/logout">Logout</a>
+                        {% else %}
                         <a class="btn btn-outline-primary" href="#" data-toggle="modal" data-target="#modalLogin">Log In | Sign Up</a>
+                        {% endif %}
                       </li>
                     </ul>
                   </div>
                 </div>
           </div><!-- /.main-menu-wrapper -->
+          {% if user.is_authenticated %}
+          <a href="/profile" class="header-login"></a>
+          {% else %}
           <a href="#" class="header-login" data-toggle="modal" data-target="#modalLogin"></a>
+          {% endif %}
           <a href="#" class="header-search js-search-toggle"></a>
 
           <div class="search-overlay">

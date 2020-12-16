@@ -12,12 +12,11 @@ class UserProfile(models.Model):
 
     birthdate = models.DateField(null=True, blank=True)
 
-    METRICS_OPTIONS = (
-        ('US','USA'),
-        ('EU','EU'),
-        ('UK','UK'),
+    UNITS_OPTIONS = (
+        ('1','Imperial'),
+        ('2','Metric'),
     )
-    metrics = models.CharField(max_length=3, choices=METRICS_OPTIONS, default='EU' )
+    units = models.CharField(max_length=1, choices=UNITS_OPTIONS, default='EU' )
 
     SEX_OPTIONS = (
         ('M','Male'),
@@ -47,30 +46,30 @@ class UserProfile(models.Model):
     )
     allergens = MultiSelectField(max_length=120, choices=ALLERGENS_OPTIONS, blank=True, verbose_name="allergens")
 
-    MEDICAL_CONDITIONS_OPTIONS = (
-        ('aids','AIDS'),
-        ('hearth-health','Hearth Health'),
-        ('kidney-disease','Kidney Disease'),
-        ('diabetes','Diabetes'),
-        ('cancer','Cancer'),
-        ('lupus','Lupus'),
-    )
-
     # MEDICAL_CONDITIONS_OPTIONS = (
-    #     ('Group 1',(
-    #         (1,'AIDS'),
-    #         (2,'Hearth Health'),
-    #         (3,'Kidney Disease')
-    #       )
-    #     ),
-
-    #     ('Group 2',(
-    #         (4,'Diabetes'),
-    #         (5,'Cancer'),
-    #         (6,'Lupus')
-    #       )
-    #     )
+    #     ('aids','AIDS'),
+    #     ('hearth-health','Hearth Health'),
+    #     ('kidney-disease','Kidney Disease'),
+    #     ('diabetes','Diabetes'),
+    #     ('cancer','Cancer'),
+    #     ('lupus','Lupus'),
     # )
+
+    MEDICAL_CONDITIONS_OPTIONS = (
+        ('Group 1',(
+            (1,'AIDS'),
+            (2,'Hearth Health'),
+            (3,'Kidney Disease')
+          )
+        ),
+
+        ('Group 2',(
+            (4,'Diabetes'),
+            (5,'Cancer'),
+            (6,'Lupus')
+          )
+        )
+    )
 
     medical_conditions = MultiSelectField(max_length=240, choices=MEDICAL_CONDITIONS_OPTIONS, blank=True, verbose_name="medical_conditions")
 

@@ -144,7 +144,7 @@ $(function() {
     }
     });
 
-    $('#multiselect-metrics').val("").multiselect({
+    $('#id_metrics').val("").multiselect({
     //includeSelectAllOption: true,
     buttonClass: 'form-control',
     buttonWidth: '100%',

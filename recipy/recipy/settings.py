@@ -12,7 +12,7 @@ RECIPY_ROOT_URL = "https://darkoje.pythonanywhere.com"
 SECRET_KEY = 'kwc2)w37qi(ds#kgugvdb$i%8@n_i&9a_h9srcm=mgqel!f0gt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['darkoje.pythonanywhere.com']
 
@@ -31,6 +31,9 @@ INSTALLED_APPS = [
     'articles',
     'accounts',
     'homepage',
+    'mptt',
+    'ingredients',
+    'foodpreparationtypes',
 ]
 
 
@@ -165,4 +168,6 @@ TINYMCE_DEFAULT_CONFIG = {
     'height': 550,
     #'language': "uk",
 }
+
+MPTT_ADMIN_LEVEL_INDENT = 20
 

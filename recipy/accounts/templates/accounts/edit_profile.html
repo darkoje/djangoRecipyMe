@@ -32,15 +32,19 @@
                         {{ profile_form.birthdate }}
                         </div>
 				    </div>
+				    <!--<script>-->
+				    <!--$.fn.datepicker.defaults.format = "mm/dd/yyyy";-->
+				    <!--</script>-->
 
 				    <div class="form-group">
-				    <label class="label-feat" for="id_metrics">Metrics</label>
-				    {{ profile_form.metrics.errors }}
-                    {{ profile_form.metrics }}
+				    <label class="label-feat" for="id_units">Units</label>
+				    {{ profile_form.units.errors }}
+                    {{ profile_form.units }}
+                    <!--<span style="font-size:8px;">available in PRO</span>-->
 				    </div>
 	                <script type="text/javascript">
-                     $('#id_metrics').multiselect({buttonClass: 'form-control',  buttonWidth: '100%'});
-			        </script>
+                     $('#id_units').multiselect({buttonClass: 'form-control',  buttonWidth: '100%'});
+                    </script>
 
 				</div>
 
@@ -97,6 +101,34 @@
 				    {{ profile_form.risk_factors.errors }}
                     {{ profile_form.risk_factors }}
 				    </div>
+
+
+				    <!--DISABLED PRO FIELD-->
+				    <!--CSS-->
+				    <style>
+                      .disabled .multiselect-selected-text {
+                        color: gray;
+                      }
+                      .multiselect-native-select .dropdown-toggle::after {
+                        display:none;
+                      }
+                    </style>
+                    <!--HTML-->
+			        <div class="form-group">
+				    <label class="label-feat" for="prodisabled" style="color:gray;">Excluded Ingredients</label>
+                            <select class="form-control" id="prodisabled" name="prodisabled">
+                                <option value="test" disabled selected hidden grey>Pro only</option>
+                            </select>
+
+                        <!--<span style="font-size:8px;color:gray;">This feature available in PRO plan.</span>-->
+				    </div>
+				    <!--JAVASCRIPT-->
+	                <script type="text/javascript">
+                     $('#prodisabled').multiselect({buttonClass: 'disabled form-control', buttonWidth: '100%'});
+                     $('#prodisabled').multiselect("disable");
+			        </script>
+
+
 				</div>
 
 			</div>

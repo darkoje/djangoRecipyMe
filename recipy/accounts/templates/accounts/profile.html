@@ -23,8 +23,8 @@
 					<p>{{ user.userprofile.birthdate }}</p>
 				</div>
 				<div class="form-group">
-					<label class="label-feat" for="Metrics">Metrics</label>
-					<p>{{ user.userprofile.get_metrics_display }}</p>
+					<label class="label-feat" for="id_units">Units</label>
+					<p>{{ user.userprofile.get_units_display }}</p>
 				</div>
 			</div>
 
@@ -57,7 +57,7 @@
 				</div>
 				<div class="form-group">
 					<label class="label-feat" for="MedicalConditions">Medical Conditions</label>
-					<p>{% if user.userprofile.medical_conditions %}{{ user.userprofile.get_medical_conditions_display }}{% else %}No Medical Conditions{% endif %}</p>
+					<p>{% if user.userprofile.medical_conditions %}{{ user.userprofile.medical_conditions }}{% else %}No Medical Conditions{% endif %}</p>
 				</div>
 				<div class="form-group">
 					<label class="label-feat" for="RiskFactors">Risk Factors</label>

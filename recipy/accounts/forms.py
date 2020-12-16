@@ -41,11 +41,11 @@ class EditProfileForm(UserChangeForm):
 
 class ProfileForm(ModelForm):
 
-    birthdate = forms.DateField(widget=forms.DateInput(attrs={'data-provide': 'datepicker'}))
+    birthdate = forms.DateField(widget=forms.DateInput(attrs={'class':'datepicker','data-provide': 'datepicker'}))
     # birthdate = forms.DateField(widget=forms.DateInput(attrs={'data-provide': 'datepicker'}), input_formats='%m/%d/%Y') # not working when submit
 
     #metrics = forms.ChoiceField(choices=UserProfile.METRICS_OPTIONS, widget=forms.RadioSelect())
-    metrics = forms.ChoiceField(choices=UserProfile.METRICS_OPTIONS, widget=forms.Select(attrs={'id': 'id_metrics'}))
+    units = forms.ChoiceField(choices=UserProfile.UNITS_OPTIONS, widget=forms.Select(attrs={'id': 'id_units'}))
     sex = forms.ChoiceField(choices=UserProfile.SEX_OPTIONS, widget=forms.Select(attrs={'id': 'id_sex'}))
     meals_per_day = forms.ChoiceField(choices=UserProfile.MEALS_PER_DAY_OPTIONS, widget=forms.Select(attrs={'id': 'id_meals_per_day'}))
 
@@ -63,14 +63,13 @@ class ProfileForm(ModelForm):
 
     class Meta:
         model = UserProfile
-        fields = ('birthdate', 'metrics', 'sex', 'height', 'weight','meals_per_day', 'allergens', 'medical_conditions', 'risk_factors')#Note that we didn't mention user field here.
+        fields = ('birthdate', 'units', 'sex', 'height', 'weight','meals_per_day', 'allergens', 'medical_conditions', 'risk_factors')#Note that we didn't mention user field here.
         #fields = '__all__'
 
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'form-control'
-            # self.fields['allergens'].choices.insert(0, ('','---------' ) )
 
 class UserLoginForm(forms.Form):
 

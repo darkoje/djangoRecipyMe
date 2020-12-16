@@ -59,8 +59,9 @@ def register_view(request):
         newuser = authenticate(username=username, password=password)
         login(request, newuser)
 
-        return redirect("/")
-        # redirect
+        # redirect to profile
+        return redirect("/profile/edit")
+
 
     context = {"form":form,"title":title}
     return render(request, "authenticate.html", context)
@@ -120,17 +121,6 @@ def edit_profile(request):
         args['form'] = form
         args['profile_form'] = profile_form
         args['user'] = request.user
-        # args['meals_per_day_options'] = UserProfile.MEALS_PER_DAY_OPTIONS
-        # args['allergens_options'] = UserProfile.ALLERGENS_OPTIONS
-
-        # # medical_conditions = prepare_for_preselect(request.user.userprofile.medical_conditions)
-        # # args['medical_conditions'] = medical_conditions
-        # args['medical_conditions_options'] = UserProfile.MEDICAL_CONDITIONS_OPTIONS
-
-        # # risk_factors = prepare_for_preselect(request.user.userprofile.risk_factors)
-        # # args['risk_factors'] = risk_factors
-        # args['risk_factors_options'] = UserProfile.RISK_FACTORS_OPTIONS
-
 
         # RENDER THE EDIT PROFILE FORM
         return render(request, 'accounts/edit_profile.html', args)

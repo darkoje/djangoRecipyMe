@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block title %} 404 - Not found! {% endblock %}
+
+{% block content %}
+
+
+<section class="section section-pro last">
+    <div class="container">
+
+                <div>
+                    <h1 class="d-flex justify-content-center">Ooops! Something's missing here.</h1>
+                    <p>
+                        <center>
+                            Page you are trying to find has been moved or does not exist.
+                            <br />
+                            Check out <a href="/blog">latest news</a> or continue browsing <a href="/recipes">healthy recipes</a>.
+                        </center>
+                    </p>
+                    <p>
+                        <center>
+                            <img src="/static/img/404.jpg" alt="404 - Page not found" style="max-width:100%;">
+                        </center>
+                    </p>
+                </div>
+
+    </div>
+</section>
+
+
+{% endblock %}
