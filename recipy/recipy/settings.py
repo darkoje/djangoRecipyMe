@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'mptt',
     'ingredients',
     'foodpreparationtypes',
+    'medicalconditions',
 ]
 
 

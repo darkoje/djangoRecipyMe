@@ -1,17 +1,14 @@
 from django.db import models
-
 from tinymce.models import HTMLField
-
 from django.utils.safestring import mark_safe
+from autoslug import AutoSlugField
 
 
-# Create your models here.
 class Article(models.Model):
     title = models.CharField(max_length=100)
-    slug = models.SlugField()
-    # body = models.TextField()
+    # slug = models.SlugField()
+    slug = AutoSlugField(populate_from='title')
     body = HTMLField()
-    # recipe = models.TextField(default="")
     date = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='images/')
 

@@ -1,6 +1,11 @@
 from django.contrib import admin
-from mptt.admin import MPTTModelAdmin
-from .models import Foodpreparationtype
+from .models import FoodPreparationTypeCategory, FoodpreparationType
 
+class FoodpreparationTypeAdmin(admin.ModelAdmin):
+    list_display = ('name','description','category',)
 
-admin.site.register(Foodpreparationtype, MPTTModelAdmin)
+class FoodPreparationTypeCategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+
+admin.site.register(FoodPreparationTypeCategory,FoodPreparationTypeCategoryAdmin)
+admin.site.register(FoodpreparationType, FoodpreparationTypeAdmin)

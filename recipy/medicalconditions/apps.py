@@ -1,5 +1,8 @@
 from django.apps import AppConfig
 
 
-class MedicalconditionsConfig(AppConfig):
+class MedicalConditionsConfig(AppConfig):
     name = 'medicalconditions'
+    verbose_name = 'Medical Conditions'
+
+

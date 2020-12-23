@@ -1,12 +1,18 @@
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
-
+from autoslug import AutoSlugField
 
 class Ingredient(models.Model):
+
   title = models.CharField(max_length=120)
   category = TreeForeignKey('Category',on_delete=models.CASCADE, null=True,blank=True, verbose_name="Ingredient Type")
+
+  # DESCRIPTION, CHANGE WITH HTML FIELD
   content = models.TextField('Content')
-  slug = models.SlugField()
+
+  # SLUG
+  # slug = models.SlugField()
+  slug = AutoSlugField(populate_from='title')
 
   # MAGIC 8
   energy = models.IntegerField(null=True, blank=True, verbose_name="Energy value (kcal)")
